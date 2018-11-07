@@ -688,7 +688,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <select id="selectList" resultType="java.lang.String">
+  <select id="selectList" resultType="object">
     select * from nplm_loan_contract
   </select>
   <update id="updateByExampleSelective" parameterType="map" >

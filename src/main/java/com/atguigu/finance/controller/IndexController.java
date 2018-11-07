@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class IndexController {
 
-    @Autowired
+    @Autowired(required=true)
     ContractAttributeService  contractAttributeService;
 
     @RequestMapping("index")
