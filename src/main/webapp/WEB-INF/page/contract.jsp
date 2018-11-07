@@ -1,5 +1,9 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.atguigu.finance.bean.ContractAttribute" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+		 pageEncoding="utf-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -294,7 +298,7 @@ $(document).ready(function(){
 	<div class="panel datagrid" style="width: auto;">
 	    <div class="panel-header" style="width: auto;"><div class="panel-title">合同列表</div><div class="panel-tool"></div></div> 
 	<table id="tt" class="easyui-treegrid" style="width:auto;height:250px"   
-         pagination="true" >   
+         pagination="true"  >
        <thead>   
         <tr>   
 				<th data-options="field:'item_id1',width:200">操作</th>	
@@ -341,14 +345,16 @@ $(document).ready(function(){
 				<th data-options="field:'item_id30',width:100">放款金额</th>
         </tr>   		
 		
-    </thead>  
-	<tbody>   
+    </thead>
+
+	<tbody>
+	<c:forEach var="contract" items="${sessionScope.list}">
         <tr>  
 			<td>
 				<a href="toRepaymentRecord.do" onClick="window.open(this.href,    '_self',    'scrollbars=yes');return  false">查看还款情况</a>
 				<a href="toUpdateRepayment.do" onClick="window.open(this.href,    '_self',    'scrollbars=yes');return  false">修改还款情况</a>
 				</td>
-			<td>565544</td>	
+			<td>${contract.loanContractNum}</td>
 			<td>还款中</td>
 			
 			<td>谢青</td>
@@ -386,9 +392,10 @@ $(document).ready(function(){
 			<td>先收费后放款</td>
 			<td>2012-05-15 12:32:22</td>
 			<td>¥19,000.00</td>
-        </tr>  
-		
-    </tbody>						
+        </tr>
+	</c:forEach>
+    </tbody>
+
 </table>  
 </body>
 </html>

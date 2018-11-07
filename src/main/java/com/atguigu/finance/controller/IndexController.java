@@ -7,6 +7,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import com.atguigu.finance.bean.ContractAttribute;
+import com.atguigu.finance.bean.ContractVo;
 import com.atguigu.finance.dao.ContractAttributeMapper;
 import com.atguigu.finance.service.ContractAttributeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +36,14 @@ public class IndexController {
     }
 @RequestMapping("toContract")
 	public String toContract(HttpServletRequest request){
-   List<String> list=contractAttributeService.getAll();
+   List<ContractAttribute> list=contractAttributeService.getAll();
     HttpSession session = request.getSession();
     session.setAttribute("list",list);
+    for (ContractAttribute contractAttribute : list) {
+    System.out.println(contractAttribute.getLoanContractNum());
+    }
+
+    System.out.print("--------------");
         return "contract";
     }
 }

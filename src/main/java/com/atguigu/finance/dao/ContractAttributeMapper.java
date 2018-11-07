@@ -3,6 +3,8 @@ package com.atguigu.finance.dao;
 import com.atguigu.finance.bean.ContractAttribute;
 import com.atguigu.finance.bean.ContractAttributeExample;
 import java.util.List;
+
+import com.atguigu.finance.bean.ContractVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface ContractAttributeMapper {
@@ -29,5 +31,5 @@ public interface ContractAttributeMapper {
     int updateByPrimaryKey(ContractAttribute record);
 
 
-    List<String> selectList();
+    ContractAttribute selectList();
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.atguigu.finance.dao.ContractAttributeMapper" >
+
   <resultMap id="BaseResultMap" type="com.atguigu.finance.bean.ContractAttribute" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="loan_contract_id" property="loanContractId" jdbcType="INTEGER" />
+
     <result column="LOAN_CONTRACT_NUM" property="loanContractNum" jdbcType="INTEGER" />
     <result column="business_type" property="businessType" jdbcType="VARCHAR" />
     <result column="is_expedited" property="isExpedited" jdbcType="VARCHAR" />
@@ -688,8 +689,16 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <select id="selectList" resultType="object">
-    select * from nplm_loan_contract
+  <select id="selectList" resultMap="BaseResultMap">
+    SELECT  a.id,a.LOAN_CONTRACT_NUM ,a.CONTRACT_TYPE,c.CLIENT_NAME,c.IDENTITY_TYPE,
+c.IDENTITY_NUM,a.CREDIT_TYPE,
+b.business_type,b.GUARANTEE_COMPANY,a.pro_CATEGORY_NAME,a.PRODUCT_INFO_ID ,
+b.city ,b.dept_name, b.is_expedited, b.sign_type , b.sign_date ,a.LOAN_INSTALMENTS,
+b.is_recycle_load,b.recycle_loan_cnt,b.first_repay_date,a.END_DATE,b.settle_date,
+ a.LOAN_AMOUNT ,a.REPAY_ACCOUNT_BANKID,a.REPAY_ACCOUNT,a.PRE_FEE ,a.LOAN_TYPE,b.habit_time,
+ a.PUT_AMOUNT
+FROM nplm_loan_contract  a LEFT  JOIN  nplm_contract_attribute  b ON a.LOAN_CONTRACT_NUM =b.`LOAN_CONTRACT_NUM`
+ LEFT JOIN nplm_borrower_info c ON a.`ECIF_ID`=c.`ECIF_ID`
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update nplm_contract_attribute
