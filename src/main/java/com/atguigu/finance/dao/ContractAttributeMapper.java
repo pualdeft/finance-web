@@ -1,10 +1,9 @@
 package com.atguigu.finance.dao;
 
-import com.atguigu.finance.bean.ContractAttribute;
-import com.atguigu.finance.bean.ContractAttributeExample;
+import com.atguigu.finance.bean.*;
+
 import java.util.List;
 
-import com.atguigu.finance.bean.ContractVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface ContractAttributeMapper {
@@ -32,4 +31,9 @@ public interface ContractAttributeMapper {
 
 
     ContractAttribute selectList();
+
+    ContractAttributeVo selectData(@Param("loanContractNum") Integer loanContractNum);
+
+
+    ContractnoVo selectnum(Integer loanContractNum);
 }

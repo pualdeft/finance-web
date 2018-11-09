@@ -131,7 +131,7 @@ $(document).ready(function(){
 </script>
 
 <div>&nbsp;</div>
-    		<form id="searchForm" method="post">
+    		<form id="searchForm" method="post" action="/toSelect">
 		    	<table style="height: auto; width: 100%;" >
 		    		<tbody>
 					<tr>
@@ -139,7 +139,7 @@ $(document).ready(function(){
 		    				合同编号：
 		    			</td>
 		    			<td width="20%">
-		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input  id="contractno" name="contractno" style="width:188px;" value="">
 		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
 		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
 		    				<input type="hidden" id="sysId" name="sysId" value="11">
@@ -157,7 +157,7 @@ $(document).ready(function(){
 		    				证件号：
 		    			</td>
 		    			<td width="20%">
-		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input  id="certificate" name="certificate" style="width:188px;" value="">
 		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
 		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
 		    				<input type="hidden" id="sysId" name="sysId" value="11">
@@ -174,14 +174,14 @@ $(document).ready(function(){
 							</td>	
 						<td width="10%" class="td_1">城市地区：</td>
 						<td width="20%">
-		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input  id="urban" name="urban" style="width:188px;" value="">
 		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
 		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
 		    				<input type="hidden" id="sysId" name="sysId" value="11">
 		    			</td>
 					<td width="10%" class="td_1">营业部：</td>
 						<td width="20%">
-		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input  id="business" name="business" style="width:188px;" value="">
 		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
 		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
 		    				<input type="hidden" id="sysId" name="sysId" value="11">
@@ -351,8 +351,8 @@ $(document).ready(function(){
 	<c:forEach var="contract" items="${sessionScope.list}">
         <tr>  
 			<td>
-				<a href="toRepaymentRecord.do" onClick="window.open(this.href,    '_self',    'scrollbars=yes');return  false">查看还款情况</a>
-				<a href="toUpdateRepayment.do" onClick="window.open(this.href,    '_self',    'scrollbars=yes');return  false">修改还款情况</a>
+				<a href="toRepaymentRecord" onClick="window.open(this.href,    '_self',    'scrollbars=yes');return  false">查看还款情况</a>
+				<a href="toUpdateRepayment" onClick="window.open(this.href,    '_self',    'scrollbars=yes');return  false">修改还款情况</a>
 				</td>
 			<td>${contract.loanContractNum}</td>
 			<td>还款中</td>
@@ -367,7 +367,7 @@ $(document).ready(function(){
 			<td>天惠</td>
 			<td>4号</td>
 			<td>北京</td>
-			
+
 			<td>北京东城营业部</td>
 			<td>否</td>
 			<td>电签</td>
@@ -398,4 +398,26 @@ $(document).ready(function(){
 
 </table>  
 </body>
+<
+<script language="JavaScript">
+    function searchInfo(){
+
+        $("#searchForm").ajaxSubmit({
+
+           datatype:"json",
+            success:function(result){
+                alert(result);
+                if(result!=null){
+                    alert(result);
+
+                }else{
+                    alert("处理请求失败!", {time:2000, icon:5, shift:6});
+                }
+            }
+
+        });
+    }
+
+
+</script>
 </html>

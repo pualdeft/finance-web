@@ -1312,4 +1312,14 @@ FROM nplm_loan_contract  a LEFT  JOIN  nplm_contract_attribute  b ON a.LOAN_CONT
       def10 = #{def10,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectData" resultType="com.atguigu.finance.bean.ContractAttributeVo">
+    SELECT a.LOAN_CONTRACT_NUM contractno
+FROM nplm_loan_contract  a LEFT  JOIN  nplm_contract_attribute  b ON a.LOAN_CONTRACT_NUM =b.`LOAN_CONTRACT_NUM`
+ LEFT JOIN nplm_borrower_info c ON a.`ECIF_ID`=c.`ECIF_ID` where a.LOAN_CONTRACT_NUM=#{loanContractNum}
+  </select>
+  <select id="selectnum" resultType="com.atguigu.finance.bean.ContractnoVo">
+    SELECT  a.LOAN_CONTRACT_NUM
+FROM nplm_loan_contract a LEFT JOIN nplm_borrower_info b ON a.`ECIF_ID`=b.`ECIF_ID`
+LEFT JOIN nplm_repayment_plan c ON a.`LOAN_CONTRACT_NUM`=c.`LOAN_CONTRACT_NUM` where a.LOAN_CONTRACT_NUM=#{loanContractNum}
+  </select>
 </mapper>

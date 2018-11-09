@@ -9,6 +9,87 @@ import java.util.Date;
  * @创建时间: 2018-09-17
  */
 public class ContractAttribute {
+
+    @Override
+    public String toString() {
+        return "ContractAttribute{" +
+                "id=" + id +
+                ", loanContractId=" + loanContractId +
+                ", loanContractNum=" + loanContractNum +
+                ", businessType='" + businessType + '\'' +
+                ", isExpedited='" + isExpedited + '\'' +
+                ", signDate=" + signDate +
+                ", signType=" + signType +
+                ", approveDate='" + approveDate + '\'' +
+                ", firstRepayDate='" + firstRepayDate + '\'' +
+                ", feeFlag=" + feeFlag +
+                ", interestFlag='" + interestFlag + '\'' +
+                ", interestType=" + interestType +
+                ", graceDays=" + graceDays +
+                ", irr=" + irr +
+                ", lnsRate=" + lnsRate +
+                ", channelCode='" + channelCode + '\'' +
+                ", channelName='" + channelName + '\'' +
+                ", loanOfficerId='" + loanOfficerId + '\'' +
+                ", cityid='" + cityid + '\'' +
+                ", city='" + city + '\'' +
+                ", isModify='" + isModify + '\'' +
+                ", isSchemeModify='" + isSchemeModify + '\'' +
+                ", recycleWay=" + recycleWay +
+                ", isRecycleLoad='" + isRecycleLoad + '\'' +
+                ", recycleLoanCnt=" + recycleLoanCnt +
+                ", oldContractNum='" + oldContractNum + '\'' +
+                ", settleAmount=" + settleAmount +
+                ", newContractNum='" + newContractNum + '\'' +
+                ", isShorten='" + isShorten + '\'' +
+                ", isExtend='" + isExtend + '\'' +
+                ", isChangeProduce='" + isChangeProduce + '\'' +
+                ", isOverdue='" + isOverdue + '\'' +
+                ", isPayAhead='" + isPayAhead + '\'' +
+                ", isPayPart='" + isPayPart + '\'' +
+                ", purpose='" + purpose + '\'' +
+                ", purposeSon='" + purposeSon + '\'' +
+                ", purposeDetail='" + purposeDetail + '\'' +
+                ", isDivAccount='" + isDivAccount + '\'' +
+                ", systemType='" + systemType + '\'' +
+                ", highRisk='" + highRisk + '\'' +
+                ", isBuyout='" + isBuyout + '\'' +
+                ", feeProcessType='" + feeProcessType + '\'' +
+                ", studentCorpName='" + studentCorpName + '\'' +
+                ", settleDate='" + settleDate + '\'' +
+                ", habitTime='" + habitTime + '\'' +
+                ", repayday='" + repayday + '\'' +
+                ", applyId='" + applyId + '\'' +
+                ", oldApplyId='" + oldApplyId + '\'' +
+                ", deptId='" + deptId + '\'' +
+                ", deptName='" + deptName + '\'' +
+                ", creator='" + creator + '\'' +
+                ", createTime=" + createTime +
+                ", updater='" + updater + '\'' +
+                ", updateTime=" + updateTime +
+                ", updateType='" + updateType + '\'' +
+                ", frontChargeDiscount=" + frontChargeDiscount +
+                ", monthMRate=" + monthMRate +
+                ", handleChargeRate=" + handleChargeRate +
+                ", loanTimes=" + loanTimes +
+                ", pawn='" + pawn + '\'' +
+                ", handleCharge=" + handleCharge +
+                ", monthChargeDiscount=" + monthChargeDiscount +
+                ", guaranteeFee=" + guaranteeFee +
+                ", guaranteeCompany='" + guaranteeCompany + '\'' +
+                ", def1='" + def1 + '\'' +
+                ", def2='" + def2 + '\'' +
+                ", def3='" + def3 + '\'' +
+                ", def4='" + def4 + '\'' +
+                ", def5='" + def5 + '\'' +
+                ", def6='" + def6 + '\'' +
+                ", def7='" + def7 + '\'' +
+                ", def8='" + def8 + '\'' +
+                ", def9='" + def9 + '\'' +
+                ", def10='" + def10 + '\'' +
+                '}';
+    }
+
     /**
      * 主键
      */

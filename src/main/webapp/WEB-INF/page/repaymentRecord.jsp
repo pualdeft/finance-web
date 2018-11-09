@@ -135,7 +135,7 @@ select {
 			<table id="table_" style="width: 100%;">
 				<tr id="tr_cell">
 					<td id="td_d2">合同编号：</td>
-					<td id="td_i"><span id="typeName" class="repaymentScheme">123456</span></td>
+					<td id="td_i"><span id="typeName" class="repaymentScheme">${sessionScope.longnum.loanContractNum}</span></td>
 					<td id="td_d2">客户姓名：</td>
 					<td id="td_i"><span id="typeName" class="repaymentScheme">李香琴</span></td>
 					<td id="td_d2">证件号：</td>
@@ -394,7 +394,8 @@ select {
 
 		</div>
 
-		<div title="还款明细" style="padding: 10px;">
+		<div title="还款明细" style="padding: 10px;" onclick="toGetResource(loanContractNum)">
+
 			<table id="t2" class="easyui-datagrid"
 				style="width: auot; height: auto" dtoolbar="#toolbar"
 				pagination="true" rownumbers="true">
@@ -1179,6 +1180,25 @@ select {
 	</div>
 	<div>&nbsp;</div>
 	<p>
+
+		<script language="JavaScript" >
+			function toGetResource(loanContractNum) {
+                $.ajax({
+                    type: "POST",
+                    url: "${APP_PATH}/controller/toGetResource",
+                    data: loanContractNum,
+
+                    success: function () {
+                        alert("成功");
+
+                    }
+                });
+
+			}
+
+
+		</script>
+
 </body>
 
 </body>

@@ -67,10 +67,10 @@ UL.ztree {
 					+ '" frameBorder=No width=100% scrolling=yes height=100% allowTransparency></iframe>';
 			//alert(content);
 			$('#tabs').tabs('add', {
-				title : title,
-				content : content,
-				closable : true
-			});
+                title : title,
+                content : content,
+                closable : true
+            });
 		}
 	}
 </script>
