@@ -31,7 +31,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/formValidatorRegex.js"></script>
 
 </head>
-<body>
+<body >
 	<title></title>
 
 	<style type="text/css">
@@ -127,7 +127,7 @@ select {
 			</tr>
 		</tbody>
 	</table>
-	<div class="easyui-tabs" style="width: auto; height: auto;">
+	<div class="easyui-tabs" style="width: auto; height: auto;" id="tt">
 
 
 		<div title="现行还款方案情况" style="padding: 10px;">
@@ -394,7 +394,7 @@ select {
 
 		</div>
 
-		<div title="还款明细" style="padding: 10px;" onclick="toGetResource(loanContractNum)">
+		<div title="还款明细" style="padding: 10px;"  >
 
 			<table id="t2" class="easyui-datagrid"
 				style="width: auot; height: auto" dtoolbar="#toolbar"
@@ -417,7 +417,7 @@ select {
 				<tbody>
 					<tr>
 
-						<td>2010-11-03 13:10:00</td>
+						<td>${sessionScope.repay.repaymentDate}</td>
 
 						<td>150,000.00</td>
 						<td>中国农业银行</td>
@@ -1181,13 +1181,30 @@ select {
 	<div>&nbsp;</div>
 	<p>
 
-		<script language="JavaScript" >
+		<script language="JavaScript" type="text/javascript">
+
+
+$('#tt').tabs({
+
+                border: false,
+                onSelect: function (title) {
+                    if (title == "还款明细") {
+                        var loanContractNum =$("#typeName").text();
+                        console.log(loanContractNum);
+                        toGetResource(loanContractNum) ;
+
+                    }
+                }
+            })
+
+
 			function toGetResource(loanContractNum) {
+			    alert(loanContractNum)
                 $.ajax({
                     type: "POST",
-                    url: "${APP_PATH}/controller/toGetResource",
-                    data: loanContractNum,
-
+                    url: "${pageContext.request.contextPath}/toGetResource",
+                    data:"loanContractNum="+loanContractNum ,
+                    datatype:"json",
                     success: function () {
                         alert("成功");
 

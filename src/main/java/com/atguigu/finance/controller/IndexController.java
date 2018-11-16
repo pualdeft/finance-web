@@ -85,9 +85,16 @@ public class IndexController {
         return "updateRepayment";
     }
 //nplm_repayment_record` 表
+    @ResponseBody
 @RequestMapping("toGetResource")
-    public String toGetResource(@RequestParam("loanContractNum") String loanContractNum) {
-     // repaymentRecordService.getData(loanContractNum);
-return null;
-    }
+public String  toGetResource(@RequestParam("loanContractNum") String loanContractNum,HttpServletRequest request) {
+
+    RepaymentRecordVo repay =repaymentRecordService.getData(loanContractNum);
+        HttpSession session = request.getSession();
+        session.setAttribute("repay",repay);
+        System.out.println("{-.-}"+repay.toString());
+    String s = JSON.toJSONString(repay);
+    return s;
+}
+
 }

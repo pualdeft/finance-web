@@ -3,6 +3,8 @@ package com.atguigu.finance.dao;
 import com.atguigu.finance.bean.RepaymentRecord;
 import com.atguigu.finance.bean.RepaymentRecordExample;
 import java.util.List;
+
+import com.atguigu.finance.bean.RepaymentRecordVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface RepaymentRecordMapper {
@@ -27,4 +29,6 @@ public interface RepaymentRecordMapper {
     int updateByPrimaryKeySelective(RepaymentRecord record);
 
     int updateByPrimaryKey(RepaymentRecord record);
+
+    RepaymentRecordVo selectResource(String loanContractNum);
 }

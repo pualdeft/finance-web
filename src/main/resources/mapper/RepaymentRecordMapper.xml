@@ -606,4 +606,7 @@
       UPDATE_TYPE = #{updateType,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectResource" resultType="com.atguigu.finance.bean.RepaymentRecordVo">
+    SELECT data_create_type ,ACCOUNT_NO,ACCOUNT_BANK_NAME ,REPAYMENT_AMOUNT,REPAYMENT_DATE,ACCOUNT_TYPE FROM`nplm_repayment_record` where LOAN_CONTRACT_NUM=#{loanContractNum}
+  </select>
 </mapper>
